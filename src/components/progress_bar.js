@@ -1,12 +1,21 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
+import LinearProgress from '@material-ui/core/LinearProgress';
+
+const MIN = 0;
+const MAX = props.steps.length;
+const normalise = activeStep => (activeStep - MIN) * 100 / (MAX - MIN);
+
 
 const ProgressBar = (props) => {
   // Declare important variables here
 
   return (
     // Create progress bar here
-    <p>Delete me when you you make progress bar!</p>
+    <p>  <React.Fragment>
+      <LinearProgress className={props.classes.progressBar} variant="determinate" value={normalise(props.activeStep)} />
+         </React.Fragment>
+    </p>
   );
 };
 
